@@ -8,7 +8,12 @@ const toggleSwitch = document.querySelector('input[type="checkbox"]');
     event.target.checked returns a boolean => if we click the switch: true - false */
 
 function switchTheme(event) {
-    console.log(event.target.checked);
+    if (event.target.checked) {
+        //https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
 }
 
 // Event Listener
