@@ -11,6 +11,7 @@ const textBox = document.getElementById('text-box');
 function darkMode() {
     nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
     textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+    console.log(toggleIcon.children);
 }
 
 // Switch Theme Dynamically
@@ -27,7 +28,7 @@ function switchTheme(event) {
         darkMode();
     } else {
         document.documentElement.setAttribute('data-theme', 'light');
-        lightMode();
+        //lightMode();
     }
 }
 
