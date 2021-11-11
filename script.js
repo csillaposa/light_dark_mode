@@ -45,12 +45,26 @@ function switchTheme(event) {
     if (event.target.checked) {
         //https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
         document.documentElement.setAttribute('data-theme', 'dark');
+        //https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+        localStorage.setItem('theme', 'dark');
         darkMode();
     } else {
         document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
         lightMode();
     }
 }
 
 // Event Listener
 toggleSwitch.addEventListener('change', switchTheme);
+
+// Check Local Storage For Theme
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+        darkMode();
+    }
+}
